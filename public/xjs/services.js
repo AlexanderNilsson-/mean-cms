@@ -8,9 +8,10 @@
 angular.module('sampleApp.services', [])
 
 .service("mongoService", ['$location', '$http', '$rootScope', function($location, $http, $rootScope) {
-	var mongoServant = {};
-		mongoServant.generateStuff = function() {
-			return "helloo";
-		};
-	return mongoServant;
+   var mongoServant = {};
+   	mongoServant.getUser = function(userId) {
+   		return ("hello user " + userId);
+   	}
+   
+   return mongoServant;
 }]);
