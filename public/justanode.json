@@ -1,0 +1,29 @@
+"node-1": {
+	nid: 1, //id of "node"
+	vid: 1, //id of current version
+	title: "Our front page!", //title of "node"
+	info: { //system info of "node"
+		type: "simple-page", //the "node" type
+		tags: [],
+		uid: 1,	//user id of author
+		notes: "just some admin notes" //notes for backend
+		isPublished: true,
+		allowComments: true,
+		created: 1402312961, //unix timestamp
+		changed: 1402312961 //unix timestamp
+	},
+	body: { //here we store the html for a "node" by region
+		region1: {
+			html: {} //html is inserted here from page editor each time "node" is saved
+		},
+		region2: {
+			html: {} //html is inserted here from page editor each time "node" is saved
+		}
+	},
+	methods: {}, //a place to store methods
+	commentIds: [
+		4,
+		2,
+		5
+	]
+}
