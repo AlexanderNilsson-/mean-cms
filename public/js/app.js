@@ -5,7 +5,8 @@
 //aService is just a dummy name for our Service function template
 
 angular.module('sampleApp', [
-	'ngRoute', 
+	'ngRoute',
+	'ngResource',
 	'sampleApp.controllers', 
 	'sampleApp.services'
 ])
@@ -15,7 +16,7 @@ angular.module('sampleApp', [
 }])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider
+	$routeProvider
 		// home page
 		.when('/', {
 			templateUrl: 'views/home.html',
@@ -32,6 +33,6 @@ angular.module('sampleApp', [
 			controller: 'GeekController'	
 		});
 
-  $routeProvider.otherwise({redirectTo: '/'});
+	$routeProvider.otherwise({redirectTo: '/'});
 
 }]);

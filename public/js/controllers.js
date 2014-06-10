@@ -16,9 +16,16 @@ angular.module('sampleApp.controllers', [
 
 	})
 	.controller('NerdController', ['$scope','mongoService', function($scope, mongoService) {
+		function success(response) {
+	      console.log("success", response);
+	    }
+	    function failure(response) {
+	      console.log("failure", response);
+	    }
+	    $scope.contact = { firstname: 'string', lastname: 'string', age: 'number' };
 
+	    //mongoService.create($scope.contact, success, failure);
 		$scope.tagline = 'Nothing beats a pocket protector!';
-		$scope.generateStuff = mongoService.generateStuff();
-		console.log($scope.generateStuff);
-
+		$scope.findContact = mongoService.index();
+		console.log("index",$scope.findContact);
 	}]);

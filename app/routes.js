@@ -10,4 +10,6 @@ module.exports = function(app) {
 		res.sendfile('./public/index.html');
 	});
 
+	app.get('/api/contacts/:id', app.api.contact);
+	app.post('/api/contacts', app.api.createContact);
 };
