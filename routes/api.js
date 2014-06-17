@@ -7,12 +7,25 @@ db.once('open', function callback () {
   console.log("Connected to DB.");
 });
 
+/*
 var contactSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number' });
 var Contact = mongoose.model('Contact', contactSchema);
+*/
+
+var postSchema = mongoose.Schema({ author: String, content: String});
+var Post = mongoose.model('Post', postSchema);
+
+var newPost = new Post ({author: "Erik", content: "DIF vinner Allsvenskan i år"});
+
+newPost.save(function (err, newPost) {
+  if (err) return console.error(err);
+  console.log("Working");
+});
+
 
 exports.contacts = function(req, res) {
   Contact.find({}, function(err, obj) {
-    res.json(obj)
+    res.json(obj);
   });
 };
 
