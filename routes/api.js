@@ -7,45 +7,38 @@ db.once('open', function callback () {
   console.log("Connected to DB.");
 });
 
-/*
-var contactSchema = mongoose.Schema({ firstname: 'string', lastname: 'string', age: 'number' });
-var Contact = mongoose.model('Contact', contactSchema);
-*/
 
 var postSchema = mongoose.Schema({ author: String, content: String});
 var Post = mongoose.model('Post', postSchema);
 
-var newPost = new Post ({author: "Erik", content: "DIF vinner Allsvenskan i år"});
-
-newPost.save(function (err, newPost) {
-  if (err) return console.error(err);
-  console.log("Working");
-});
 
 
-exports.contacts = function(req, res) {
-  Contact.find({}, function(err, obj) {
+exports.getBlogPosts = function(req, res) {
+  Post.find({}, function(err, obj) {
+    console.log(obj);
     res.json(obj);
   });
 };
 
-exports.contact = function(req, res) {
-  Contact.findOne({ _id: req.params.id }, function(err, obj) {
+exports.getBlogPost = function(req, res) {
+  Post.findOne({ _id: req.params.id }, function(err, obj) {
     res.json(obj);
   });
 };
 
-exports.createContact = function(req, res) {
-  var contact = new Contact(req.body);
-  contact.save();
+exports.createBlogPost = function(req, res) {
+  var newPost = new Post (req.body);
+  console.log("createBlogPost");
+  newPost.save();
   res.json(req.body);
 };
 
-exports.updateContact = function(req, res) {
-  Contact.findByIdAndUpdate(req.params.id, {
-    $set: { firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age }
+exports.updateBlogPost = function(req, res) {
+  Post.findByIdAndUpdate(req.params.id, {
+    $set: { author: req.body.author, content: req.body.content}
   }, { upsert: true },
   function(err, obj) {
+    console.log("Updated blog", obj);
     return res.json(true);
   });
 };

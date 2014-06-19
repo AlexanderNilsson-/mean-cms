@@ -8,7 +8,7 @@ angular.module('sampleApp', [
 	'ngRoute',
 	'ngResource',
 	'sampleApp.controllers', 
-	'sampleApp.services'
+	'sampleApp.factory'
 ])
 
 .config(['$locationProvider', function($locationProvider) {
@@ -28,9 +28,15 @@ angular.module('sampleApp', [
 			controller: 'AdminController'
 		})
 
-		.when('/geeks', {
-			templateUrl: 'views/geek.html',
-			controller: 'GeekController'	
+
+		.when('/posts/:id', {
+			templateUrl: '/index.html',
+			controller: 'AdminController'
+		})
+
+		.when('/home', {
+			templateUrl: 'views/home.html',
+			controller: 'HomeController'	
 		});
 
 	$routeProvider.otherwise({redirectTo: '/'});

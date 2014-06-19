@@ -4,11 +4,14 @@
 /* Controllers */
 
 angular.module('sampleApp.controllers', [
-		"sampleApp.services"
+		"sampleApp.factory"
 	])
-	.controller('GeekController', function($scope) {
-		$scope.tagline = 'The square root of life is pi!';
-
+	.controller('HomeController', function($scope) {
+		
+		$scope.showPosts = function() {
+			mongoService.index();
+		}
+	
 	})
 	
 
@@ -19,22 +22,19 @@ angular.module('sampleApp.controllers', [
 	})
 	
 
-	.controller('AdminController', ['$scope','mongoService', function($scope, mongoService) {
-		function success(response) {
-			console.log("success", response);
-		}
-		function failure(response) {
-			console.log("failure", response);
-		}
+	.controller('AdminController', ['$scope','mongoService', '$location', '$routeParams', function($scope, mongoService, $routeParams, $location) {
+
 		$scope.contact = { firstname: 'string', lastname: 'string', age: 'number' };
 
 		$scope.insertNewMessage = function(message) {
-			console.log(message);
+			mongoService.create(message);
 		}
 
-		console.log($scope.author);
+		$scope.updateMessage = function(message) {
+			mongoService.update(message);
+		}
+
 		//mongoService.create($scope.contact, success, failure);
 		$scope.tagline = 'Nothing beats a pocket protector!';
 		$scope.findContact = mongoService.index();
-		console.log("index",$scope.findContact);
 	}]);
