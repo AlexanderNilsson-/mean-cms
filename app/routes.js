@@ -14,6 +14,8 @@ module.exports = function(app) {
 	app.post('/api/posts', app.api.createBlogPost);
 	app.put('/api/posts/:id', app.api.updateBlogPost);
 
+	app.delete('/api/posts/:id', app.api.deleteBlogPost);
+
 	app.get('*', function(req, res) {
 		res.sendfile('./public/index.html');
 	});

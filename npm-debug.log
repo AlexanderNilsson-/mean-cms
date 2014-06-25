@@ -1,7 +1,9 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@1.4.9
-3 info using node@v0.10.28
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'start' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info prestart mean-cms@
 6 info start mean-cms@
@@ -17,10 +19,10 @@
 10 error You can get their info via:
 10 error     npm owner ls mean-cms
 10 error There is likely additional logging output above.
-11 error System Darwin 13.0.2
-12 error command "node" "/usr/local/bin/npm" "start"
-13 error cwd /Users/alexander/www/git/mean-cms
-14 error node -v v0.10.28
-15 error npm -v 1.4.9
+11 error System Windows_NT 6.2.9200
+12 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
+13 error cwd c:\Program Files (x86)\Ampps\www\mean-cms
+14 error node -v v0.10.29
+15 error npm -v 1.4.14
 16 error code ELIFECYCLE
 17 verbose exit [ 1, true ]

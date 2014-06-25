@@ -6,13 +6,16 @@
 angular.module('sampleApp.controllers', [
 		"sampleApp.factory"
 	])
-	.controller('HomeController', function($scope) {
+	.controller('HomeController',['$scope','mongoService', '$location', '$routeParams', function($scope, mongoService, $routeParams, $location) {
 		
-		$scope.showPosts = function() {
-			mongoService.index();
+		$scope.showPosts = mongoService.index();
+		//$scope.showPosts = [mongoService.show()];
+		$scope.deletePost = function(postID){
+			console.log(postID);
+			mongoService.destroy(postID);
 		}
 	
-	})
+	}])
 	
 
 	.controller('MainController', function($scope) {

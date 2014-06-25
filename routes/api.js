@@ -15,7 +15,7 @@ var Post = mongoose.model('Post', postSchema);
 
 exports.getBlogPosts = function(req, res) {
   Post.find({}, function(err, obj) {
-    console.log(obj);
+    console.log('bloggpost1', obj);
     res.json(obj);
   });
 };
@@ -43,8 +43,8 @@ exports.updateBlogPost = function(req, res) {
   });
 };
 
-exports.destroyContact = function(req, res) {
-  Contact.remove({ _id: req.params.id }, function(err) {
+exports.deleteBlogPost = function(req, res) {
+  Post.remove({ _id: req.params.id }, function(err) {
     res.json(true);
   });
 };
