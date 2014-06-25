@@ -7,17 +7,6 @@ var api = require('./routes/api');
 
 app.api = api;
 
-	
-// Change this to whatever the name of your local DB should be
-//mongoose.connect('mongodb://localhost/cms');
-/*
-// Connect to DB
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log("Connected to DB.");
-});
-*/
 
 // Select port to use
 var port = process.env.PORT || 3000; // set our port
